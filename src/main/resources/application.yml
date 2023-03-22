@@ -1,16 +1,13 @@
 spring:
   thymeleaf:
-    #关闭缓存
     cache: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/seckill?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: root
-    #springboot默认连接池
     hikari:
       pool-name: DateHikariCP
-      #最小空闲连接数
       minimum-idle: 5
       idle-timeout: 180000
       maximum-pool-size: 10
@@ -18,11 +15,20 @@ spring:
       max-lifetime: 180000
       connection-timeout: 30000
       connection-test-query: SELECT 1
+  redis:
+    host: 192.168.2.2
+    port: 6379
+    database: 0
+    timeout: 10000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: 10000ms
+        max-idle: 200
+        min-idle: 5
 
 mybatis-plus:
-  #映射文件
   mapper-locations: classpath*:/mapper/*Mapper.xml
-  #mybatis返回类型别名
   type-aliases-package: com.aimer.seckill.pojo
 
 logging:
