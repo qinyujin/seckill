@@ -28,9 +28,16 @@ public class LoginController {
         return "login";
     }
 
+//    @PostMapping("/doLogin")
+//    @ResponseBody
+//    public RespBean doLogin(@Valid @RequestBody LoginVO loginVO, HttpServletRequest request, HttpServletResponse response) {
+//        return userService.doLogin(loginVO, request, response);
+//    }
+
+    //用于生成压测的数据
     @PostMapping("/doLogin")
     @ResponseBody
-    public RespBean doLogin(@Valid @RequestBody LoginVO loginVO, HttpServletRequest request, HttpServletResponse response) {
+    public RespBean doLogin(@Valid LoginVO loginVO, HttpServletRequest request, HttpServletResponse response) {
         return userService.doLogin(loginVO, request, response);
     }
 }

@@ -7,53 +7,39 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * <p>
- *
+ * 秒杀订单表
  * </p>
  *
  * @author aimer
- * @since 2023-03-14
+ * @since 2023-03-23
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("t_user")
-public class User implements Serializable {
+@TableName("t_seckill_order")
+public class SeckillOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id",type = IdType.AUTO)
     private Long id;
 
-    private String nickname;
+    /**
+     * 用户ID
+     */
+    private Long userId;
 
     /**
-     * MD5(MD5(pass明文+固定salt)+salt)
+     * 订单ID
      */
-    private String password;
-
-    private String slat;
+    private Long orderId;
 
     /**
-     * 头像
+     * 商品ID
      */
-    private String head;
+    private Long goodsId;
 
-    /**
-     * 注册时间
-     */
-    private Date registerDate;
-
-    /**
-     * 最后登录时间
-     */
-    private Date lastLoginDate;
-
-    /**
-     * 登录次数
-     */
-    private Integer loginCount;
 
 }

@@ -7,53 +7,55 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.math.BigDecimal;
 
 /**
  * <p>
- *
+ * 商品表
  * </p>
  *
  * @author aimer
- * @since 2023-03-14
+ * @since 2023-03-23
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("t_user")
-public class User implements Serializable {
+@TableName("t_goods")
+public class Goods implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id",type = IdType.AUTO)
     private Long id;
 
-    private String nickname;
+    /**
+     * 商品名称
+     */
+    private String goodsName;
 
     /**
-     * MD5(MD5(pass明文+固定salt)+salt)
+     * 商品标题
      */
-    private String password;
-
-    private String slat;
+    private String goodsTitle;
 
     /**
-     * 头像
+     * 商品图片
      */
-    private String head;
+    private String goodsImg;
 
     /**
-     * 注册时间
+     * 商品详情
      */
-    private Date registerDate;
+    private String goodsDetail;
 
     /**
-     * 最后登录时间
+     * 商品价格
      */
-    private Date lastLoginDate;
+    private BigDecimal goodsPrice;
 
     /**
-     * 登录次数
+     * 商品库存，-1表示没有限制
      */
-    private Integer loginCount;
+    private Integer goodsStock;
+
 
 }
